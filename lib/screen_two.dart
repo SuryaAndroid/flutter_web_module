@@ -14,6 +14,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
   var index = 0;
   var msg = "";
   var phn = "";
+  var adrs = "";
+  var error = false;
 
   Widget LoginWidget() {
     return Column(
@@ -46,14 +48,45 @@ class _ScreenTwoState extends State<ScreenTwo> {
             ),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: TextField(
+            onChanged: (e){
+              setState(() {
+                adrs = e.toString();
+              });
+            },
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Enter Address"
+            ),
+          ),
+        ),
         ElevatedButton(
             onPressed: (){
               setState(() {
-                index = 1;
+                if(msg == ""||phn==""||adrs==""){
+                  error = true;
+                }else{
+                  index = 1;
+                  error = false;
+                }
               });
             },
             child: Text('Take Me')
-        )
+        ),
+        error?
+        Container(
+          height: 30,
+          margin: EdgeInsets.only(top: 20),
+          alignment: Alignment.center,
+          color: Colors.red,
+          child: Row(
+            children: [
+              Text("Please Fill All Details",style: TextStyle(color: Colors.white),)
+            ],
+          ),
+        ):Container(),
       ],
     );
   }
@@ -63,7 +96,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
       children:[
         Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text(msg + " "+ phn, style: TextStyle(color: Colors.black),)
+          child: Text("Your Details \n\n"+msg + "\n"+ phn+"\n"+adrs, style: TextStyle(color: Colors.black),)
         ),
         ElevatedButton(
             onPressed: (){
@@ -71,6 +104,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 index = 0;
                 msg = "";
                 phn = "";
+                adrs = "";
               });
             },
             child: Text('Back')
