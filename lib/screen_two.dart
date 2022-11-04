@@ -77,7 +77,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
         ),
         error?
         Container(
-          height: 30,
+          height: MediaQuery.of(context).size.height*0.091,
           margin: EdgeInsets.only(top: 20),
           alignment: Alignment.center,
           color: Colors.red,
@@ -115,11 +115,14 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
   @override
   Widget build(BuildContext context) {
+
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
         width:MediaQuery.of(context).size.width,
-        color: Colors.yellow,
+        color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -159,13 +162,13 @@ class _ScreenTwoState extends State<ScreenTwo> {
             // )
 
             Container(
-              height: MediaQuery.of(context).size.height*0.8,
-              width:MediaQuery.of(context).size.width*0.2,
+              height: MediaQuery.of(context).size.height,
+              width:MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
                   color: Colors.black,
-                  width: 7,
+                  width: 10,
                 ),
                 borderRadius: BorderRadius.circular(20)
               ),
@@ -210,19 +213,19 @@ class _ScreenTwoState extends State<ScreenTwo> {
                                 phn = "";
                               });
                             },
-                            icon: Icon(Icons.arrow_back_ios, color: Colors.white,size: 15,)
+                            icon: Icon(Icons.arrow_back_ios, color: Colors.white,size: height*0.03,)
                           ),
                           IconButton(
                               onPressed: (){
 
                               },
-                              icon: Icon(Icons.home, color: Colors.white,size: 15,)
+                              icon: Icon(Icons.home, color: Colors.white,size: height*0.03,)
                           ),
                           IconButton(
                               onPressed: (){
 
                               },
-                              icon: Icon(Icons.check_box_outline_blank, color: Colors.white,size: 15,)
+                              icon: Icon(Icons.check_box_outline_blank, color: Colors.white,size: height*0.03,)
                           ),
                         ],
                       )

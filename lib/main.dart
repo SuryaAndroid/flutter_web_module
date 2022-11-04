@@ -32,15 +32,15 @@ class RoutesName {
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RoutesName.FIRST_PAGE:
-        return _GeneratePageRoute(
-            widget: ScreenOne(), routeName: settings.name!);
+      // case RoutesName.FIRST_PAGE:
+      //   return _GeneratePageRoute(
+      //       widget: ScreenOne(), routeName: settings.name!);
       case RoutesName.SECOND_PAGE:
         return _GeneratePageRoute(
             widget: ScreenTwo(), routeName: settings.name!);
       default:
         return _GeneratePageRoute(
-            widget: ScreenOne(), routeName: settings.name!);
+            widget: ScreenTwo(), routeName: settings.name!);
     }
   }
 }
