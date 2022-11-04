@@ -160,7 +160,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
             //     ),
             //   ),
             // )
-
             Container(
               height: MediaQuery.of(context).size.height,
               width:MediaQuery.of(context).size.width,
